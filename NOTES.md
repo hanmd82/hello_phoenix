@@ -27,3 +27,22 @@ connection                # Plug.Conn
 - Templates are web pages or fragments that allow both static markup and native code to build **response pages**, compiled into a function
 - Phoenix builds templates using linked lists rather than string concatenation (the way many imperative languages do), so Phoenix does not need to make huge copies of giant strings. Hardware caching, supported by most CPUs, can be used
 - Plug breaks out the `params` part of the inbound `conn`, which can be used to extract the individual elements to pass to the controller `action`
+- In Phoenix, a view is just a module, and templates are just functions. Rendering a template is a combination of pattern matching on the template name, and executing the function
+- The following code snippet fetches a user from a repository and renders the template directly. Note that `render` returns a tuple, with contents stored in a list for performance:
+
+    ```
+    iex> user = HelloPhoenix.Repo.get HelloPhoenix.User, "1"
+    %HelloPhoenix.User{id: "1", name: "José", password: "elixir", username: "josevalim"}
+    iex> view = HelloPhoenix.UserView.render("user.html", user: user)
+    {:safe, [[[[["" | "<b>"] | "José"] | "</b> ("] | "1"] | ")\n"]}
+    iex> Phoenix.HTML.safe_to_string(view)
+    "<b>José</b> (1)\n"
+    ```
+
+Summary:
+
+- Actions are the main point of control for each request
+- Views are for rendering templates
+- Templates generate HTML for display
+- Helpers are simple Phoenix functions used in templates
+- Layouts are HTML templates that embed an action's HTML
