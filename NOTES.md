@@ -46,3 +46,8 @@ Summary:
 - Templates generate HTML for display
 - Helpers are simple Phoenix functions used in templates
 - Layouts are HTML templates that embed an action's HTML
+
+### Programming Phoenix - Chapter 4
+
+- Ecto is a data persistence wrapper, primarily intended for relational databases (default PostgreSQL), along with a built-in query language
+- Ecto provides the concept of __changesets__ that hold all changes to be performed on the database, encapsulating the process of receiving external data, casting and validation, before writing to database
