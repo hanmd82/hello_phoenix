@@ -51,3 +51,6 @@ Summary:
 
 - Ecto is a data persistence wrapper, primarily intended for relational databases (default PostgreSQL), along with a built-in query language
 - Ecto provides the concept of __changesets__ that hold all changes to be performed on the database, encapsulating the process of receiving external data, casting and validation, before writing to database
+- Ecto has a DSL (implemented via Elixir macros) that specifies the fields in a struct, and the mapping between those fields and the database tables
+- The `schema` and `field` macros specify both the underlying database table and the Elixir struct, as well as their corresponding fields. After the `schema` definition, Ecto defines the corresponding Elixir struct
+- Phoenix models, controllers, and views are just layers of functions. Just as a `controller` is a layer to transform requests and responses according to a communication protocol, the `model` is nothing more than a group of functions to transform data according to business logic requirements
