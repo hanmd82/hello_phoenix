@@ -26,3 +26,4 @@ connection                # Plug.Conn
 - Views are modules responsible for **rendering data** into a format for consumption, like HTML or JSON
 - Templates are web pages or fragments that allow both static markup and native code to build **response pages**, compiled into a function
 - Phoenix builds templates using linked lists rather than string concatenation (the way many imperative languages do), so Phoenix does not need to make huge copies of giant strings. Hardware caching, supported by most CPUs, can be used
+- Plug breaks out the `params` part of the inbound `conn`, which can be used to extract the individual elements to pass to the controller `action`
