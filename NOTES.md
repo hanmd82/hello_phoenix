@@ -22,4 +22,4 @@ connection                # Plug.Conn
 - Structs are Elixir’s main abstraction for working with structured data - built on top of maps
 - maps only offer runtime protection from bad keys, when the keys are accessed. To know about such errors as soon as possible, e.g. at compilation time, we can use Structs
 - syntax for structs and maps is nearly identical, except for the name of the struct. A struct is a map that has a `__struct__` key
-- A repository is an API for holding things - it can be used to build a data interface
+- A repository is an API for holding things - it can be used to build a data interface as simple hardcoded maps, which can be later replaced with a full database-backed repository
