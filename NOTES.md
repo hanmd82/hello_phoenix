@@ -58,3 +58,8 @@ Summary:
 - Ecto migrations [cheatsheet](http://ricostacruz.com/cheatsheets/phoenix-migrations.html)
 - Phoenix is built on top of OTP, a layer for reliably managing services. Use OTP to start key services like Ecto repositories in a supervised process so that Ecto and Phoenix can do the right thing in case the repository crashes
 - Repositories provide one interface for many different implementations, and configurations, e.g. extract data records from memory, or fetch from database
+- Changesets let Ecto manage data record changes, cast parameters, and perform validations. Use changesets to build customized strategies for dealing with each specific kind of change
+- the `cast` command is used to specify necessary required fields, and subsequently cast all required and optional values to their schema types, rejecting everything else. Returns an `Ecto.Changeset`
+- purpose of changesets is to accommodate various model update strategies - validations, error reporting, security etc. Decouple update policy from schema - each update policy can be handled in its own separate changeset function
+- using a helper function to build forms, rather than HTML Tags, provides conveniences like security, UTF-8 encoding etc. The template engine returns everything in the template as a function
+- `Ecto.Changeset` implements an Elixir protocol to convert its internal data to the structure required by Phoenix forms, as documented in the `Phoenix.HTML.FormData` contract
