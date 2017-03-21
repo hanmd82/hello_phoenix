@@ -7,6 +7,6 @@ defmodule HelloPhoenix.User do
     field :password, :string, virtual: true
     field :password_hash, :string
 
-    timestamps
+    timestamps()
   end
 end

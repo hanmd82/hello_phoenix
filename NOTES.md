@@ -54,3 +54,7 @@ Summary:
 - Ecto has a DSL (implemented via Elixir macros) that specifies the fields in a struct, and the mapping between those fields and the database tables
 - The `schema` and `field` macros specify both the underlying database table and the Elixir struct, as well as their corresponding fields. After the `schema` definition, Ecto defines the corresponding Elixir struct
 - Phoenix models, controllers, and views are just layers of functions. Just as a `controller` is a layer to transform requests and responses according to a communication protocol, the `model` is nothing more than a group of functions to transform data according to business logic requirements
+- Phoenix uses __migrations__ to make the database reflect the structure of the application. E.g. add a migration to create a `users` table with columns matching the fields in the `User` schema.
+- Ecto migrations [cheatsheet](http://ricostacruz.com/cheatsheets/phoenix-migrations.html)
+- Phoenix is built on top of OTP, a layer for reliably managing services. Use OTP to start key services like Ecto repositories in a supervised process so that Ecto and Phoenix can do the right thing in case the repository crashes
+- Repositories provide one interface for many different implementations, and configurations, e.g. extract data records from memory, or fetch from database
