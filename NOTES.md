@@ -63,3 +63,7 @@ Summary:
 - purpose of changesets is to accommodate various model update strategies - validations, error reporting, security etc. Decouple update policy from schema - each update policy can be handled in its own separate changeset function
 - using a helper function to build forms, rather than HTML Tags, provides conveniences like security, UTF-8 encoding etc. The template engine returns everything in the template as a function
 - `Ecto.Changeset` implements an Elixir protocol to convert its internal data to the structure required by Phoenix forms, as documented in the `Phoenix.HTML.FormData` contract
+- implementation of a controller action is via chaining of simple `plug` functions that are used to transform the connection, one step at a time
+- failed validations will return a result `{:error, changeset}` - this needs to be converted into relevant validation errors upon failure
+- The `:action` field of a changeset indicates an action performed on it, such as `:insert`. By default it’s nil with a new changeset, so if the form is rendered with any truthy action, it indicates that validation errors have occurred
+- Ecto changeset carries the validations and stores this information for later use. In addition to validation errors, the changesets also track changes. Ecto is using changesets as a bucket to hold everything related to a database change, before and after persistence
