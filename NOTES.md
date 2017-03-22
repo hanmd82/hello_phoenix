@@ -67,3 +67,8 @@ Summary:
 - failed validations will return a result `{:error, changeset}` - this needs to be converted into relevant validation errors upon failure
 - The `:action` field of a changeset indicates an action performed on it, such as `:insert`. By default it’s nil with a new changeset, so if the form is rendered with any truthy action, it indicates that validation errors have occurred
 - Ecto changeset carries the validations and stores this information for later use. In addition to validation errors, the changesets also track changes. Ecto is using changesets as a bucket to hold everything related to a database change, before and after persistence
+
+### Programming Phoenix - Chapter 5
+
+- Changesets can be chained/composed, and change policies do not have to be strongly coupled with database persistence
+- Inside a module, we can define functions with `def/2` and private functions with `defp/2`. A function defined with `def/2` can be invoked from other modules while a private function can only be invoked locally
