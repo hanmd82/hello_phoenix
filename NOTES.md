@@ -72,3 +72,5 @@ Summary:
 
 - Changesets can be chained/composed, and change policies do not have to be strongly coupled with database persistence
 - Inside a module, we can define functions with `def/2` and private functions with `defp/2`. A function defined with `def/2` can be invoked from other modules while a private function can only be invoked locally
+- Changesets can be used to insulate controllers from change policies specified in the model layer, while keeping models free of side effects
+- Validations are a pipeline of functions that transform the changeset. The changeset is a data structure that explicitly tracks changes and their validity
