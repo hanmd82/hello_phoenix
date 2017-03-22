@@ -94,3 +94,5 @@ Summary:
     - in the `call` function, use `assign` (a function imported from `Plug.Conn`) to transform the connection, by storing the user extracted from the session and repo (or `nil`) in `:current_user`
 - use the authentication plug to find out whether a user is logged in, to restrict access to pages which list or show user information
 - use `halt(conn)` to stop any downstream transformations to the `conn`
+- make the `authenticate` function a **function plug** that receives two arguments: the `conn` and a set of options, and returns the `conn`
+- Plug pipelines explicitly check for `halted: true` between every plug invocation
