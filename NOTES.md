@@ -96,3 +96,4 @@ Summary:
 - use `halt(conn)` to stop any downstream transformations to the `conn`
 - make the `authenticate` function a **function plug** that receives two arguments: the `conn` and a set of options, and returns the `conn`
 - Plug pipelines explicitly check for `halted: true` between every plug invocation
+- when creating forms that are not backed by a changeset, pass in a `%Plug.Conn{}` struct
