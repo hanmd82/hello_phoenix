@@ -74,3 +74,18 @@ Summary:
 - Inside a module, we can define functions with `def/2` and private functions with `defp/2`. A function defined with `def/2` can be invoked from other modules while a private function can only be invoked locally
 - Changesets can be used to insulate controllers from change policies specified in the model layer, while keeping models free of side effects
 - Validations are a pipeline of functions that transform the changeset. The changeset is a data structure that explicitly tracks changes and their validity
+- Plugs provide a common data structure for piped functions
+    - **module plugs**: specify by providing the module name. A module plug must provide two functions: `init` and `call`
+        ```
+        defmodule NothingPlug do
+          def init(opts) do
+            opts
+          end
+          def call(conn, _opts) do
+            conn
+          end
+        end
+        ```
+    - The `init` function is triggered at compile time - suitable for validating and transforming options. The `call` function is triggered at runtime, to do the main work and change the behavior of the plug
+    - **function plugs**: specify by providing the name of the function as an atom
+    - All plugs take a `conn` and return a `conn`. A `conn` begins almost blank, and is filled out progressively by different plugs in the pipeline
