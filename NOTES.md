@@ -117,3 +117,4 @@ Summary:
     - the plural form of the model name
     - each field, with some type information
 - Phoenix consistently uses singular forms in models, controllers, and views
+- Applications can use as many plugs and pipelines as needed, organizing them in scopes using `pipe_through`
