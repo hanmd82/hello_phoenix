@@ -106,3 +106,14 @@ Summary:
 - built the associated changesets to handle password validation and restrict user access
 - created a module plug that loads user information from the session and made it part of the browser pipeline
 - created a function plug that can be shared across different actions in the controller pipeline
+
+### Programming Phoenix - Chapter 6
+
+- use generators to build the skeleton—including the migration, controllers, and templates to bootstrap the process
+    - `phoenix.gen.html` creates a simple HTTP scaffold with HTML pages
+    - `phoenix.gen.json` creates a REST-based API using JSON
+- Example: `mix phoenix.gen.html Video videos user_id:references:users url:string title:string description:text` specifies:
+    - the name of the module that defines the model
+    - the plural form of the model name
+    - each field, with some type information
+- Phoenix consistently uses singular forms in models, controllers, and views
