@@ -99,3 +99,10 @@ Summary:
 - when creating forms that are not backed by a changeset, pass in a `%Plug.Conn{}` struct
 - Everything stored in `conn.assigns` is made available to the views, e.g. an authenticated user stored in `conn.assigns.current_user` is made available as `@current_user`
 - passing the `:method` option to `link` generates a form tag instead of an anchor tag. Links without a specified HTTP method will default to `GET` and a simple link will be rendered
+
+Summary:
+
+- implemented the authentication layer and created the functionality to store users in the session
+- built the associated changesets to handle password validation and restrict user access
+- created a module plug that loads user information from the session and made it part of the browser pipeline
+- created a function plug that can be shared across different actions in the controller pipeline
