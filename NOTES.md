@@ -89,3 +89,6 @@ Summary:
     - The `init` function is triggered at compile time - suitable for validating and transforming options. The `call` function is triggered at runtime, to do the main work and change the behavior of the plug
     - **function plugs**: specify by providing the name of the function as an atom
     - All plugs take a `conn` and return a `conn`. A `conn` begins almost blank, and is filled out progressively by different plugs in the pipeline
+- create an authentication service as a plug, that can be added to any pipeline in the router, so that other controllers can re-use it
+    - in the `init` function, take the given options and extract the repository, raising an exception if the `:repo` key doesn't exist
+    - in the `call` function, use `assign` (a function imported from `Plug.Conn`) to transform the connection, by storing the user extracted from the session and repo (or `nil`) in `:current_user`
