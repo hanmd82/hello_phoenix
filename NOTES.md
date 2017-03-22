@@ -97,3 +97,5 @@ Summary:
 - make the `authenticate` function a **function plug** that receives two arguments: the `conn` and a set of options, and returns the `conn`
 - Plug pipelines explicitly check for `halted: true` between every plug invocation
 - when creating forms that are not backed by a changeset, pass in a `%Plug.Conn{}` struct
+- Everything stored in `conn.assigns` is made available to the views, e.g. an authenticated user stored in `conn.assigns.current_user` is made available as `@current_user`
+- passing the `:method` option to `link` generates a form tag instead of an anchor tag. Links without a specified HTTP method will default to `GET` and a simple link will be rendered
