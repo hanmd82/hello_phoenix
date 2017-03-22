@@ -92,3 +92,5 @@ Summary:
 - create an authentication service as a plug, that can be added to any pipeline in the router, so that other controllers can re-use it
     - in the `init` function, take the given options and extract the repository, raising an exception if the `:repo` key doesn't exist
     - in the `call` function, use `assign` (a function imported from `Plug.Conn`) to transform the connection, by storing the user extracted from the session and repo (or `nil`) in `:current_user`
+- use the authentication plug to find out whether a user is logged in, to restrict access to pages which list or show user information
+- use `halt(conn)` to stop any downstream transformations to the `conn`
