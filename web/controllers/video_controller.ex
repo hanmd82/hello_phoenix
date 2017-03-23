@@ -8,16 +8,18 @@ defmodule HelloPhoenix.VideoController do
     render(conn, "index.html", videos: videos)
   end
 
-  def new(conn, _params) do
-    changeset = conn.assigns.current_user
+  def new(conn, _params, user) do
+    changeset = user
                 |> build_assoc(:videos)
                 |> Video.changeset()
 
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"video" => video_params}) do
-    changeset = Video.changeset(%Video{}, video_params)
+  def create(conn, %{"video" => video_params}, user) do
+    changeset = user
+                |> build_assoc(:videos)
+                |> Video.changeset(video_params)
 
     case Repo.insert(changeset) do
       {:ok, _video} ->
@@ -64,5 +66,10 @@ defmodule HelloPhoenix.VideoController do
     conn
     |> put_flash(:info, "Video deleted successfully.")
     |> redirect(to: video_path(conn, :index))
+  end
+
+  def action(conn, _) do
+    apply(__MODULE__, action_name(conn),
+          [conn, conn.params, conn.assigns.current_user])
   end
 end
