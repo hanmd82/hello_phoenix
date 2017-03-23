@@ -7,6 +7,8 @@ defmodule HelloPhoenix.User do
     field :password, :string, virtual: true
     field :password_hash, :string
 
+    has_many :videos, HelloPhoenix.Video
+
     timestamps()
   end
 

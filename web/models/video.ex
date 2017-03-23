@@ -5,6 +5,7 @@ defmodule HelloPhoenix.Video do
     field :url, :string
     field :title, :string
     field :description, :string
+
     belongs_to :user, HelloPhoenix.User
 
     timestamps()

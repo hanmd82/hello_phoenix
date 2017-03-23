@@ -118,3 +118,5 @@ Summary:
     - each field, with some type information
 - Phoenix consistently uses singular forms in models, controllers, and views
 - Applications can use as many plugs and pipelines as needed, organizing them in scopes using `pipe_through`
+- Ecto associations need to be explicitly loaded, e.g. `user = Repo.preload(user, :videos)`. `Repo.preload` accepts one or a collection of association names, and it can fetch all associated data
+- Use `Ecto.build_assoc` to build a struct, with the proper relationship fields already set
