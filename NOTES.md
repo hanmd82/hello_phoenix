@@ -130,3 +130,4 @@ Summary:
 ### Programming Phoenix - Chapter 7
 
 - Relational databases like Postgres provide tools and features that help define and enforce the relationships between tables and help keep the data consistent
+- for `Ecto.model`, fields that are not in the `validate_required` list are regarded as optional

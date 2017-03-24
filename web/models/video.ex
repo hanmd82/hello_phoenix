@@ -7,6 +7,7 @@ defmodule HelloPhoenix.Video do
     field :description, :string
 
     belongs_to :user, HelloPhoenix.User
+    belongs_to :category, HelloPhoenix.Category
 
     timestamps()
   end
