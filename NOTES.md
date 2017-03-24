@@ -126,3 +126,7 @@ Summary:
 - Every controller has its own default `action` function, which is a plug that dispatches to the proper action at the end of the controller pipeline. Use the `__MODULE__` directive to expand to the current module, in atom form
 - API for controller actions can be changed/over-written to receive new arguments, e.g. connection, parameters, and current user
 - Use the `Ecto.assoc` function to return a query of all videos scoped to the given user - this implements a simple authorization rule restricting access and updates to a video's owner
+
+### Programming Phoenix - Chapter 7
+
+- Relational databases like Postgres provide tools and features that help define and enforce the relationships between tables and help keep the data consistent
