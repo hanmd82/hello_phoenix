@@ -131,3 +131,5 @@ Summary:
 
 - Relational databases like Postgres provide tools and features that help define and enforce the relationships between tables and help keep the data consistent
 - for `Ecto.model`, fields that are not in the `validate_required` list are regarded as optional
+- Use a script to use the repository to directly add seed data
+- Use database constraints to enforce uniqueness. Convert a constraint into an error by calling `unique_constraint/3` in changeset
