@@ -123,3 +123,4 @@ Summary:
 - Associate the current user from the session to each new video - grab the current user from the conection and scope operations against the user
 - Every controller has its own default `action` function, which is a plug that dispatches to the proper action at the end of the controller pipeline. Use the `__MODULE__` directive to expand to the current module, in atom form
 - API for controller actions can be changed/over-written to receive new arguments, e.g. connection, parameters, and current user
+- Use the `Ecto.assoc` function to return a query of all videos scoped to the given user - this implements a simple authorization rule restricting access and updates to a video's owner
