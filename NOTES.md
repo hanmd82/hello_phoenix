@@ -134,3 +134,11 @@ Summary:
 - Use a script to use the repository to directly add seed data
 - Use database constraints to enforce uniqueness. Convert a constraint into an error by calling `unique_constraint/3` in changeset
 - Use functions that receive and return `queryables` and chain them up to form `Ecto` queries
+- in Phoenix, functions which may have side effects, and handle complexity, are kept in the `controller` layer, while `view` and `model` layers remain side effect free
+- `Ecto` queries can be built using *keyword-list* syntax (probably more convenient for pulling together ad-hoc queries and solving one-off problems) or *pipe* syntax (perhaps better for building an application's unique complex layered query API)
+- `Ecto` fragments allow construction of SQL queries in a safely-escaped form
+- `Ecto` associations are explicit, and `Repo.preload` is used to fetch associated data. Associations can be preloaded or joined within queries
+- Use *constraints* to manage database integrity. A `changeset constraint` is a constraint annotation added to the changeset, that allows `Ecto` to convert constraint errors into changeset error messages
+- In `IEx`, use `v(n)` to fetch a previous value from the `n` expression. Use negative values of `n` to fetch the last `nth` expression
+- Each changeset encapsulates the whole change policy, including allowed fields, detecting change, validations and messaging the user
+- Use changeset constraints if the error message is something the user can take action on
