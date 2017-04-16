@@ -133,3 +133,4 @@ Summary:
 - for `Ecto.model`, fields that are not in the `validate_required` list are regarded as optional
 - Use a script to use the repository to directly add seed data
 - Use database constraints to enforce uniqueness. Convert a constraint into an error by calling `unique_constraint/3` in changeset
+- Use functions that receive and return `queryables` and chain them up to form `Ecto` queries
